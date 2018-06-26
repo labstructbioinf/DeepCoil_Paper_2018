@@ -25,9 +25,8 @@ for entry in entries:
 		f.write('>%s\n' % entry)
 		f.write('%s\n' % id2seq[entry])
 		f.close()
-		if not os.path.isfile('results/%s.coils_n14' % entry):
 			#print("DUPA")
-			os.system('/home/users/jludwiczak/PCOILS_v1.0.1/run_coils -nw -win 14 < %s.fasta > results/%s.coils_n14' % (entry, entry))
-			os.system('/home/users/jludwiczak/PCOILS_v1.0.1/run_coils -nw -win 21 < %s.fasta > results/%s.coils_n21' % (entry, entry))
-			os.system('/home/users/jludwiczak/PCOILS_v1.0.1/run_coils -nw -win 28 < %s.fasta > results/%s.coils_n28' % (entry, entry))
-	os.system('rm %s.fasta' % entry)
+		os.system('/home/users/jludwiczak/PCOILS_v1.0.1/run_coils -win 14 < %s.fasta > results/%s.coils_n14' % (entry, entry))
+		os.system('/home/users/jludwiczak/PCOILS_v1.0.1/run_coils -win 21 < %s.fasta > results/%s.coils_n21' % (entry, entry))
+		os.system('/home/users/jludwiczak/PCOILS_v1.0.1/run_coils -win 28 < %s.fasta > results/%s.coils_n28' % (entry, entry))
+		os.system('rm %s.fasta' % entry)
